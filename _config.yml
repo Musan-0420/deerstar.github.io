@@ -80,7 +80,7 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  #repo: https://github.com/deerstar/deerstar.github.io.git
-  repo: git@github.com:deerstar/deerstar.github.io.git
+  repo: https://deerstar:{Cm1117378240}@github.com/deerstar/deerstar.github.io.git
+  #repo: git@github.com:deerstar/deerstar.github.io.git
   branch: master #published
   message: 

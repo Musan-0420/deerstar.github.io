@@ -54,30 +54,25 @@ toc: true
       1. 新建一个文件夹,命名hexob，将原站点目录下所有文件copy到这里。
       2. 初始化git工作空间，执行命令 `git init`  
       3. 新建本地分支命令 `git checkout -b hexob`
-      4. 将根目录下所有文件提交`git add .`, `git commit -m 'ps'`, 再推送`git push origin hexob:hexob` ，通常多人协作时，需要pull三连 `git add && git commit && git pull`, 用于在本地处理冲突 
+      4. 将根目录下所有文件提交`git add .`, `git commit -m 'ps'`, 再推送`git push origin hexob:hexob`  
       5. 在GitHub上将hexob设为默认分支  
     执行完毕，可以在其他PC上使用了
 
     ##### 其他PC操作
 
-    1. 克隆hexob分支到本地， 克隆分支命令 `git clone -b hexo https://github.com/deerstar/deerstar.github.io.git`  
-    2. 在本地新拷贝的`deerstar.github.io`文件夹下通过Git bash依次执行下列指令：`npm install hexo、npm install、npm install hexo-deployer-git`（ps:不要hexo init）  
-    3. 初始化git工作空间，执行命令 `git init`  
-    4. 产生ssh_key命令
-
-        ```
-        1 $ ssh-keygen -t rsa -C "邮件地址@youremail.com"
-        2 Generating public/private rsa key pair.
-        3 Enter file in which to save the key (/Users/your_user_directory/.ssh/id_rsa):<回车就好>
-        ```
-
-    4. 在本地对博客进行修改（添加新博文、修改样式等等）后  
+    假设这个PC之前没有安装过git相关文件
+    1. 安装`git`及`node.js`
+    2. 生成这个PC.git的ssh key 
+       1. 命令`ssh-keygen -t rsa -C "your_email@example.com"`，敲击三个空格，即不设密码
+       2. 在`c:/user/PC-name/.ssh/目录下，打开pub文件，复制全部
+       3. 在`GitHub-sittings-SSH KEY`,添加新的ssh-key,将复制的代码粘进来，注意代码前后不要回车或空格
+    3. 克隆hexob分支到本地， 克隆分支命令 `git clone -b hexob git@github.com:deerstar/deerstar.github.io.git`  
+    4. 在本地新拷贝的`deerstar.github.io`文件夹下, 通过Git bash依次执行下列指令：`npm install hexo --save、npm install、npm install hexo-deployer-git`（ps:不要hexo init）
+    5. 在本地对博客进行修改（添加新博文、修改样式等等）后  
        1. 依次执行`git add . && git commit -m "..." && git push origin hexob`指令将改动推送到GitHub（此时当前分支应为hexob）
        2. 然后才执行`hexo clean && hexo g -d`发布网站到master分支上
        3. ps: 一般在source文件夹下，直接创建markdown来写  
-       4. 最最最重要的一点就是一点要在正确的目录下进行命令操作！！！  
-  #repo: https://github.com/deerstar/deerstar.github.io.git
-  repo: git@github.com:deerstar/deerstar.github.io.git
+    6. 最最最重要的一点就是一点要在正确的目录下进行命令操作！！！  
   
     ##### 报错记录
 
@@ -93,47 +88,8 @@ toc: true
         `git push origin hexob`  
     - 报错：git上传文件到仓库上提示：`origin does not to be a git repository`  
         解决：`git remote add origin https://github.com/deerstar/deerstar.github.io.git`，然后再推送
-    - 删除远程分支命令`git push origin --delete hexo`
 
-git branch -a 列出本地分支和远程分支;  
-这里的远程分支指的是本地保存的远程跟踪分支；
+    ##### 一些git命令
 
-可以通过get fetch将本地远程跟踪分支进行更新，与远程分支保持一致；
-
-ssh-keygen -t rsa -C "870506402@qq.com"
-
-
-第一次从git远程仓库pull内容到本地
-
-第一步：配置本地SSH（这里不赘述）
-
-第二步：cd选择本地目录，用指令$git clone 远程仓库SSH地址
-
-第三步：$git fetch --all  先把远程仓库所有地址拉到本地，用$git branch -a查看拉取情况
-
-第四步：$git checkout -b 新分支名称
-
-第五步：$git branch --set-upstream-to=origin/远程分支名称 本地分支名称  目的是在本地分支和远程分支之间建立跟踪连接
-
-第六步：$git pull 
-
-这样就将远程分支拉取到本地了 
-
-ssh-key
-
-
-[Git SSH Key 生成步骤 - hustpzb的专栏 - CSDN博客](https://blog.csdn.net/hustpzb/article/details/8230454)
-
-github设置添加SSH - 破男孩 - 博客园
-https://www.cnblogs.com/ayseeing/p/3572582.html
-
-克隆分支后，查看分支git branch -a，只显示master
-git branch -a 列出本地分支和远程分支; 
-这里的远程分支指的是本地保存的远程跟踪分支
-可以通过get fetch将本地远程跟踪分支进行更新，与远程分支保持一致, 没用
-
-Git - 新建本地分支与远程分支关联问题 - 简书
-https://www.jianshu.com/p/fc433b1686bd
-
-
-
+    - 删除远程分支命令`git push origin --delete hexo`  
+    - `git branch -a` 列出本地分支和远程分支; 这里的远程分支指的是本地保存的远程跟踪分支；
