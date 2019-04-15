@@ -88,6 +88,8 @@ toc: true
         `git push origin hexob`  
     - 报错：git上传文件到仓库上提示：`origin does not to be a git repository`  
         解决：`git remote add origin https://github.com/deerstar/deerstar.github.io.git`，然后再推送
+    - 报错： `fatal: in unpopulated submodule '.deploy_git'`  
+        解决： 删除.deploy_git,`rm -rf .deploy_git`，再重新部署
 
     ##### 一些git命令
 
