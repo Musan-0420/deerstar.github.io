@@ -74,8 +74,11 @@ toc: true
     4. 在本地对博客进行修改（添加新博文、修改样式等等）后  
        1. 依次执行`git add . && git commit -m "..." && git push origin hexob`指令将改动推送到GitHub（此时当前分支应为hexob）
        2. 然后才执行`hexo clean && hexo g -d`发布网站到master分支上
-       3. ps: 一般在source文件夹下，直接创建markdown来写
-
+       3. ps: 一般在source文件夹下，直接创建markdown来写  
+       4. 最最最重要的一点就是一点要在正确的目录下进行命令操作！！！  
+  #repo: https://github.com/deerstar/deerstar.github.io.git
+  repo: git@github.com:deerstar/deerstar.github.io.git
+  
     ##### 报错记录
 
     - 报错`reinitialized existing git repository`  
@@ -134,4 +137,3 @@ https://www.jianshu.com/p/fc433b1686bd
 
 
 
-### 最最最重要的一点就是一点要在正确的目录下进行命令操作！！！！
